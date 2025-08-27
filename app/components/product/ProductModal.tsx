@@ -10,11 +10,12 @@ import { useCartStore } from '@/store/cartStore';
 import { fetchProductById } from '@/lib/api';
 import { useQuery } from '@tanstack/react-query';
 import { formatPrice, capitalizeFirst } from '@/utils/helpers';
+import { useState } from 'react';
 
 export const ProductModal: React.FC = () => {
   const { selectedProductId, setSelectedProduct } = useProductStore();
   const { addItem, items } = useCartStore();
-  const [quantity, setQuantity] = React.useState(1);
+  const [quantity, setQuantity] = useState(1);
 
   const { data: product, isLoading, error } = useQuery({
     queryKey: ['product', selectedProductId],
@@ -59,7 +60,7 @@ export const ProductModal: React.FC = () => {
           <p className="text-red-600">Failed to load product details</p>
         </div>
       ) : product ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-black">
           {/* Product Image */}
           <div className="relative aspect-square">
             <Image
@@ -100,13 +101,13 @@ export const ProductModal: React.FC = () => {
 
             {/* Quantity Selector */}
             <div className="flex items-center mb-6">
-              <span className="text-sm font-medium text-gray-700 mr-4">
+              <span className="text-sm font-medium text-gray-900 mr-4">
                 Quantity:
               </span>
-              <div className="flex items-center border border-gray-300 rounded-lg">
+              <div className="flex items-center border border-gray-300 rounded-lg ">
                 <button
                   onClick={() => adjustQuantity(-1)}
-                  className="p-2 hover:bg-gray-50 transition-colors"
+                  className="p-2 hover:bg-gray-50 transition-colors "
                   disabled={quantity <= 1}
                 >
                   <Minus className="w-4 h-4" />
@@ -116,9 +117,9 @@ export const ProductModal: React.FC = () => {
                 </span>
                 <button
                   onClick={() => adjustQuantity(1)}
-                  className="p-2 hover:bg-gray-50 transition-colors"
+                  className="p-2 hover:bg-gray-50 transition-colors "
                 >
-                  <Plus className="w-4 h-4" />
+                  <Plus className="w-4 h-4 text-black"  />
                 </button>
               </div>
             </div>
