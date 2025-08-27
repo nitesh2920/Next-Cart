@@ -80,7 +80,7 @@ export const CartModal: React.FC = () => {
                 </div>
 
                 {/* Quantity Controls */}
-                <div className="flex items-center space-x-2">
+                <div className="flex items-center space-x-2 text-black">
                   <button
                     onClick={() =>
                       handleQuantityChange(item.product.id, item.quantity - 1)
@@ -121,7 +121,7 @@ export const CartModal: React.FC = () => {
           {/* Cart Summary */}
           <div className="border-t pt-4">
             <div className="flex justify-between items-center mb-4">
-              <span className="text-sm text-gray-600">
+              <span className="text-sm text-gray-800">
                 Total Items: {itemCount}
               </span>
               <Button
