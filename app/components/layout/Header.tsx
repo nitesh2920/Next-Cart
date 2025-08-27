@@ -1,5 +1,4 @@
 'use client';
-import React from 'react';
 import { SearchBar } from '@/components/search/SearchBar';
 import { FilterDropdown } from '@/components/search/FilterDropdown';
 import { CartIcon } from '@/components/cart/CartIcon';

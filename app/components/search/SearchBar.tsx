@@ -1,16 +1,16 @@
 'use client';
-import React from 'react';
 import { Search } from 'lucide-react';
 import { Input } from '@/components/ui/Input';
 import { useProductStore } from '@/store/productStore';
 import { useDebounce } from '@/hooks/useDebounce';
+import { useEffect,useState } from 'react';
 
 export const SearchBar: React.FC = () => {
   const { filters, setSearch } = useProductStore();
-  const [searchTerm, setSearchTerm] = React.useState(filters.search);
+  const [searchTerm, setSearchTerm] = useState(filters.search);
   const debouncedSearch = useDebounce(searchTerm, 300);
 
-  React.useEffect(() => {
+  useEffect(() => {
     setSearch(debouncedSearch);
   }, [debouncedSearch, setSearch]);
 

@@ -1,5 +1,4 @@
 'use client';
-import React from 'react';
 import { Header } from '@/components/layout/Header';
 import { ProductGrid } from '@/components/product/ProductGrid';
 import { ProductModal } from '@/components/product/ProductModal';
@@ -9,7 +8,7 @@ import { AddProductButton } from '@/components/product/AddProductButton';
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Header */}
+    
       <Header />
 
       {/* Main Content */}
