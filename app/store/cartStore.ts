@@ -14,7 +14,7 @@ interface CartStore extends Cart {
 
 export const useCartStore = create<CartStore>()(
   persist(
-    (set, get) => ({
+    (set) => ({
       items: [],
       total: 0,
       itemCount: 0,
@@ -74,10 +74,27 @@ export const useCartStore = create<CartStore>()(
           };
         }),
 
+        //error hai 
       updateQuantity: (productId: number, quantity: number) =>
         set((state) => {
           if (quantity <= 0) {
-            return get().removeItem(productId);
+            const newItems = state.items.filter(
+              (item) => item.product.id !== productId
+            );
+            const newTotal = newItems.reduce(
+              (sum, item) => sum + item.product.price * item.quantity,
+              0
+            );
+            const newItemCount = newItems.reduce(
+              (sum, item) => sum + item.quantity,
+              0
+            );
+
+            return {
+              items: newItems,
+              total: newTotal,
+              itemCount: newItemCount,
+            };
           }
 
           const newItems = state.items.map((item) =>
