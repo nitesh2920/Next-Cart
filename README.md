@@ -25,9 +25,7 @@ Preview Live:  [Link](https://next-cart-towx.vercel.app/)
     bun install
     ```
 
-## Installation
-
-1.  Run the development server:
+3.  Run the development server:
 
     ```bash
     npm run dev
@@ -38,5 +36,42 @@ Preview Live:  [Link](https://next-cart-towx.vercel.app/)
     # or
     bun dev
     ```
+    
+## Folder Structure
 
-2.  Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+```
+.
+├── .gitignore
+├── eslint.config.mjs
+├── next.config.ts
+├── package-lock.json
+├── package.json
+├── postcss.config.mjs
+├── README.md
+├── tsconfig.json
+├── app/
+│   ├── favicon.ico
+│   ├── globals.css
+│   ├── layout.tsx
+│   └── page.tsx
+├── components/
+│   ├── cart/
+│   ├── layout/
+│   ├── product/
+│   ├── search/
+│   └── ui/
+├── hooks/
+├── lib/
+├── store/
+├── types/
+├── utils/
+└── public/
+```
+
+*   `app/`: Contains the main application code, including pages and layouts.
+*   `components/`: Contains reusable UI components.
+*   `hooks/`: Contains custom React hooks.
+*   `lib/`: Contains utility functions and API client.
+*   `store/`: Contains the application's state management logic using Zustand.
+*   `types/`: Contains TypeScript type definitions.
+*   `utils/`: Contains helper functions.
