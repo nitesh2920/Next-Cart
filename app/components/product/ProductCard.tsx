@@ -6,7 +6,6 @@ import { Product } from '@/types/product';
 import { Button } from '@/components/ui/Button';
 import { useCartStore } from '@/store/cartStore';
 import { useProductStore } from '@/store/productStore';
-import { formatPrice, truncateText } from '@/utils/helpers';
 
 interface ProductCardProps {
   product: Product;
@@ -42,11 +41,11 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
       
       <div className="p-4">
         <h3 className="font-semibold text-gray-900 mb-2 line-clamp-2">
-          {truncateText(product.title, 60)}
+          {product.title}
         </h3>
         
         <p className="text-gray-600 text-sm mb-3 line-clamp-3">
-          {truncateText(product.description, 100)}
+          {product.description}
         </p>
         
         <div className="flex items-center mb-3">
@@ -60,7 +59,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         
         <div className="flex items-center justify-between">
           <span className="text-lg font-bold text-gray-900">
-            {formatPrice(product.price)}
+            ${product.price}
           </span>
           
           <Button

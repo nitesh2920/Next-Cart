@@ -8,7 +8,6 @@ import { Input } from '@/components/ui/Input';
 import { Modal } from '@/components/ui/Modal';
 import { useCategories } from '@/hooks/useCategories';
 import { addProductSchema, AddProductFormData } from '@/lib/validation';
-import { capitalizeFirst } from '@/utils/helpers';
 import Image from 'next/image';
 
 interface AddProductFormProps {
@@ -100,12 +99,12 @@ export const AddProductForm: React.FC<AddProductFormProps> = ({
           </label>
           <select
             {...register('category')}
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none capitalize focus:ring-2 focus:ring-blue-500 focus:border-transparent"
           >
             <option value="">Select a category</option>
             {categories?.map((category) => (
               <option key={category} value={category}>
-                {capitalizeFirst(category)}
+                {category}
               </option>
             ))}
           </select>

@@ -9,7 +9,6 @@ import { useProductStore } from '@/store/productStore';
 import { useCartStore } from '@/store/cartStore';
 import { fetchProductById } from '@/lib/api';
 import { useQuery } from '@tanstack/react-query';
-import { formatPrice, capitalizeFirst } from '@/utils/helpers';
 import { useState } from 'react';
 
 export const ProductModal: React.FC = () => {
@@ -86,8 +85,8 @@ export const ProductModal: React.FC = () => {
                 </span>
               </div>
               <span className="mx-2 text-gray-300">|</span>
-              <span className="text-sm text-gray-600 bg-gray-100 px-2 py-1 rounded">
-                {capitalizeFirst(product.category)}
+              <span className="text-sm text-gray-600 bg-gray-100 px-2 py-1 rounded capitalize">
+                {product.category}
               </span>
             </div>
 
@@ -96,7 +95,7 @@ export const ProductModal: React.FC = () => {
             </p>
 
             <div className="text-3xl font-bold text-gray-900 mb-6">
-              {formatPrice(product.price)}
+             $ {product.price}
             </div>
 
             {/* Quantity Selector */}

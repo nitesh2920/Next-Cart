@@ -3,7 +3,6 @@ import React from 'react';
 import { ChevronDown } from 'lucide-react';
 import { useCategories } from '@/hooks/useCategories';
 import { useProductStore } from '@/store/productStore';
-import { capitalizeFirst } from '@/utils/helpers';
 import { LoadingSpinner } from '@/components/ui/LoadingSpinner';
 
 export const FilterDropdown: React.FC = () => {
@@ -31,8 +30,8 @@ export const FilterDropdown: React.FC = () => {
         className="flex items-center justify-between w-48 px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
         disabled={isLoading}
       >
-        <span className="truncate">
-          {filters.category ? capitalizeFirst(filters.category) : 'All Categories'}
+        <span className="truncate capitalize">
+          {filters.category ? filters.category : 'All Categories'}
         </span>
         {isLoading ? (
           <LoadingSpinner size="sm" />
@@ -56,13 +55,13 @@ export const FilterDropdown: React.FC = () => {
               <button
                 key={category}
                 onClick={() => handleCategorySelect(category)}
-                className={`w-full px-4 py-2 text-sm text-left hover:bg-gray-50 ${
+                className={`w-full px-4 py-2 text-sm text-left hover:bg-gray-50 capitalize ${
                   filters.category === category
                     ? 'bg-blue-50 text-blue-700'
                     : 'text-gray-700'
                 }`}
               >
-                {capitalizeFirst(category)}
+                {category}
               </button>
             ))}
           </div>

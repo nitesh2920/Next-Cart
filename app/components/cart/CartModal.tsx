@@ -4,7 +4,6 @@ import { Trash2, Minus, Plus, ShoppingBag } from 'lucide-react';
 import { Modal } from '@/components/ui/Modal';
 import { Button } from '@/components/ui/Button';
 import { useCartStore } from '@/store/cartStore';
-import { formatPrice } from '@/utils/helpers';
 
 export const CartModal: React.FC = () => {
   const {
@@ -76,7 +75,7 @@ export const CartModal: React.FC = () => {
                     {item.product.title}
                   </h4>
                   <p className="text-sm text-gray-500">
-                    {formatPrice(item.product.price)}
+                    ${item.product.price}
                   </p>
                 </div>
 
@@ -105,7 +104,7 @@ export const CartModal: React.FC = () => {
 
                 {/* Item Total */}
                 <div className="text-sm font-medium text-gray-900">
-                  {formatPrice(item.product.price * item.quantity)}
+                  ${item.product.price * item.quantity}
                 </div>
 
                 {/* Remove Button */}
@@ -137,7 +136,7 @@ export const CartModal: React.FC = () => {
             
             <div className="flex justify-between items-center text-lg text-black font-bold mb-4">
               <span>Total:</span>
-              <span>{formatPrice(total)}</span>
+              <span>${total}</span>
             </div>
 
             {/* Action Buttons */}
